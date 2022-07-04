@@ -4,6 +4,13 @@ This is an extended version of the existing keycloak.js Adapter. It's the same c
 
 ## Change log
 
+### 16.1.1-id-token-hint
+
+Made the module compatible when running keycloak 18.x.x with legacy-logout-redirect-uri=true.
+This module will also work when running keycloak < 18 as well
+Added `id_token_hint` to createLogoutUrl method to removed the confirm logout screen.
+Removed `hidden=yes`  from the logout process for `cordova` adapter
+
 ### 16.1.1 
 
 Copy of keycloak-js@16.1.1 re formatted into a layout to easily publish to a npm repository 

@@ -508,7 +508,8 @@
 
         kc.createLogoutUrl = function(options) {
             var url = kc.endpoints.logout()
-                + '?redirect_uri=' + encodeURIComponent(adapter.redirectUri(options, false));
+                + '?redirect_uri=' + encodeURIComponent(adapter.redirectUri(options, false))
+                + '&id_token_hint=' + encodeURIComponent(kc.idToken);
 
             return url;
         }
@@ -1496,7 +1497,7 @@
                         var promise = createPromise();
 
                         var logoutUrl = kc.createLogoutUrl(options);
-                        var ref = cordovaOpenWindowWrapper(logoutUrl, '_blank', 'location=no,hidden=yes,clearcache=yes');
+                        var ref = cordovaOpenWindowWrapper(logoutUrl, '_blank', 'location=no,clearcache=yes');
 
                         var error;
 
