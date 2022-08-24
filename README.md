@@ -1,25 +1,29 @@
 # Keycloak-js
+
 This is an extended version of the existing keycloak.js Adapter. It's the same code with a few modification.
 
-
 ## Change log
+
+### 16.1.1-id-token-hint-oauth
+
+Change the `cordova-native` adapter code to use the `cordova-plugin-oauth` (https://github.com/1PlaceNZ/cordova-plugin-oauth.git branch feature/OpenID)
 
 ### 16.1.1-id-token-hint
 
 Made the module compatible when running keycloak 18.x.x with legacy-logout-redirect-uri=true.
 This module will also work when running keycloak < 18 as well
 Added `id_token_hint` to createLogoutUrl method to removed the confirm logout screen.
-Removed `hidden=yes`  from the logout process for `cordova` adapter
+Removed `hidden=yes` from the logout process for `cordova` adapter
 
-### 16.1.1 
+### 16.1.1
 
-Copy of keycloak-js@16.1.1 re formatted into a layout to easily publish to a npm repository 
+Copy of keycloak-js@16.1.1 re formatted into a layout to easily publish to a npm repository
 
 ## to build
 
- mvn package
+mvn package
 
-This creates a `npm`  folder in the `target` folder where you can publish the modified package
+This creates a `npm` folder in the `target` folder where you can publish the modified package
 
     cd target/npm/
 
@@ -27,6 +31,12 @@ This creates a `npm`  folder in the `target` folder where you can publish the mo
     npm login --registry <npm registry>
     npm publish --registry <npm registry>
 
+for beta or testing
+
+npm publish --registry https://jenkinstest.1placeonline.com:4873/ --tag beta
+
+npm install --registry https://jenkinstest.1placeonline.com:4873 keycloak-js --tag beta
+
 ## License
 
-* [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+-   [Apache License, Version 2.0](https://www.apache.org/licenses/LICENSE-2.0)
