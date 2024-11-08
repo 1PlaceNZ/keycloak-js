@@ -1,1 +1,8 @@
 target
+.idea/
+bin
+node
+node_modules
+lib
+dist
+.wireit/
