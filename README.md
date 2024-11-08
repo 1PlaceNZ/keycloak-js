@@ -4,6 +4,11 @@ This is an extended version of the existing keycloak.js Adapter. It's the same c
 
 ## Change log
 
+### 25.0.6-id-token-hint
+
+Update keycloak-js to 25.0.6
+Applies the `cordova-native` adapter code (login/logout function) from the version '16.1.1-id-token-hint-oauth'
+
 ### 16.1.1-id-token-hint-oauth
 
 Change the `cordova-native` adapter code to use the `cordova-plugin-oauth` (https://github.com/1PlaceNZ/cordova-plugin-oauth.git branch feature/OpenID)
@@ -21,19 +26,24 @@ Copy of keycloak-js@16.1.1 re formatted into a layout to easily publish to a npm
 
 ## to build
 
-mvn package
+We need to install npm dependencies and build the keycloak js, then pack the output into tgz file.
+Update the properties section in the pom.xml if your node/npm version are different.
 
-This creates a `npm` folder in the `target` folder where you can publish the modified package
+npm install
 
-    cd target/npm/
+npm run build
 
-    rmdir css  //empty css folder to remove
+mvn clean package
+
+This creates keycloak-js-25.0.6-id-token-hint.tgz in the `target` folder where you can publish the modified package
+
+    cd target
     npm login --registry <npm registry>
     npm publish --registry <npm registry>
 
 for beta or testing
 
-npm publish --registry https://jenkinstest.1placeonline.com:4873/ --tag beta
+npm publish keycloak-js-25.0.6-id-token-hint.tgz --registry https://jenkinstest.1placeonline.com:4873/ --tag beta
 
 npm install --registry https://jenkinstest.1placeonline.com:4873 keycloak-js --tag beta
 
